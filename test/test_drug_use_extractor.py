@@ -10,7 +10,7 @@ from digExtractor.extractor import Extractor
 from digExtractor.extractor_processor import ExtractorProcessor
 from digDrugUseExtractor.drug_use_extractor import DrugUseExtractor
 
-class TestGenderExtractorMethods(unittest.TestCase):
+class TestDrugUseExtractorMethods(unittest.TestCase):
 
     def setUp(self):
         pass
