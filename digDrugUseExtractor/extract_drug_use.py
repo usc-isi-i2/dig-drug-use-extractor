@@ -31,6 +31,27 @@ drug_use_words = [
     r"pill-popper"
     ]
 
+# If any of the following match, assume it is a negative statement
+negative_regex_list = [
+    r"don't\s+do\s+drugs?",
+    r'do\s+not\s+do\s+drugs?',
+    r'\bno\s+drugs\b',
+    r'adrenaline'
+]
+
+# Typical sentence fragments to refer to drug users
+regex_list = [
+    "|".join(phrase_re_list),
+    r'\bon\s+.{,15}?drugs?',
+    r'\bshe\s+.{,4}?drugs',
+    r'\btrak\s+.{,15}?arms',
+    r'\buses\s+drugs',
+    r'\buses\s+and.{,8}?drugs',
+    r'\bsmells?\s+.{,8}?drugs',
+    r'\bdoes\s.{,15}?drugs',
+    r'\bshe\s+in.{,7}?drugs',
+]
+
 def extract_drug_use(text):
     """Returns an array of all mentions of drug use.
     Example mentions from ads:
@@ -66,14 +87,6 @@ def extract_drug_use(text):
 
     """
 
-    # If any of the following match, assume it is a negative statement
-    negative_regex_list = [
-        r"don't\s+do\s+drugs?",
-        r'do\s+not\s+do\s+drugs?',
-        r'\bno\s+drugs\b',
-        r'adrenaline'
-    ]
-
     for negative in negative_regex_list:
         if re.findall(negative, text, re.I):
             return []
@@ -83,19 +96,6 @@ def extract_drug_use(text):
     phrase_re_list = []
     for x in drug_use_words:
          phrase_re_list.append(drug_use_build_phrase(x))
-
-    # Typical sentence fragments to refer to drug users
-    regex_list = [
-        "|".join(phrase_re_list),
-        r'\bon\s+.{,15}?drugs?',
-        r'\bshe\s+.{,4}?drugs',
-        r'\btrak\s+.{,15}?arms',
-        r'\buses\s+drugs',
-        r'\buses\s+and.{,8}?drugs',
-        r'\bsmells?\s+.{,8}?drugs',
-        r'\bdoes\s.{,15}?drugs',
-        r'\bshe\s+in.{,7}?drugs',
-    ]
 
     result = []
     for r in regex_list:

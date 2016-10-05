@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-09-30 14:01:47
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-10-03 23:48:26
+# @Last Modified time: 2016-10-05 10:40:58
 
 
 from distutils.core import setup
@@ -10,7 +10,7 @@ from setuptools import Extension,find_packages
 from os import path
 
 setup(
-    name = 'digGenderExtractor',
+    name = 'digDrugUseExtractor',
     version = '0.1.0',
     description = 'digDrugUseExtractor',
     author = 'Lingzhe Teng',
@@ -19,5 +19,5 @@ setup(
     download_url = 'https://github.com/usc-isi-i2/dig-drug-use-extractor',
     packages = find_packages(),
     keywords = ['drug', 'use', 'extractor'],
-    install_requires=['digGenderExtractor']
+    install_requires=['digDrugUseExtractor']
     )
