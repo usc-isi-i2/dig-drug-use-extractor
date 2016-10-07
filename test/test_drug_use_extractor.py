@@ -18,7 +18,7 @@ class TestDrugUseExtractorMethods(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_price_extractor(self):
+    def test_drug_use_extractor(self):
         doc = {'content': 'she is on drugs a dope whores and a junkie who is on some heavy drugs and does drugs and an adict, smells bad', 'b': 'world'}
 
         extractor = DrugUseExtractor().set_metadata({'extractor': 'drug'})
