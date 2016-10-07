@@ -24,7 +24,7 @@ class TestDrugUseExtractorMethods(unittest.TestCase):
         extractor = DrugUseExtractor().set_metadata({'extractor': 'drug'})
         extractor_processor = ExtractorProcessor().set_input_fields(['content']).set_output_field('extracted').set_extractor(extractor)
         updated_doc = extractor_processor.extract(doc)
-        self.assertEqual(updated_doc['extracted']['value'], ['dope whores', 'junkie', 'adict', 'on drugs', 'on some heavy drugs', 'does drugs'])
+        self.assertEqual(updated_doc['extracted'][0]['value'], ['dope whores', 'junkie', 'adict', 'on drugs', 'on some heavy drugs', 'does drugs'])
 
     
 

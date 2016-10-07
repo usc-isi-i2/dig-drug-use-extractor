@@ -19,5 +19,5 @@ setup(
     download_url = 'https://github.com/usc-isi-i2/dig-drug-use-extractor',
     packages = find_packages(),
     keywords = ['drug', 'use', 'extractor'],
-    install_requires=['digDrugUseExtractor']
+    install_requires=['digExtractor']
     )
