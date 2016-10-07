@@ -39,6 +39,11 @@ negative_regex_list = [
     r'adrenaline'
 ]
 
+# Common drug user slang
+phrase_re_list = []
+for x in drug_use_words:
+     phrase_re_list.append(drug_use_build_phrase(x))
+         
 # Typical sentence fragments to refer to drug users
 regex_list = [
     "|".join(phrase_re_list),
@@ -90,12 +95,6 @@ def extract_drug_use(text):
     for negative in negative_regex_list:
         if re.findall(negative, text, re.I):
             return []
-
-
-    # Common drug user slang
-    phrase_re_list = []
-    for x in drug_use_words:
-         phrase_re_list.append(drug_use_build_phrase(x))
 
     result = []
     for r in regex_list:
