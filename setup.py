@@ -6,18 +6,17 @@
 
 
 from distutils.core import setup
-from setuptools import Extension,find_packages
-from os import path
+from setuptools import find_packages
 
 setup(
-    name = 'digDrugUseExtractor',
-    version = '0.1.0',
-    description = 'digDrugUseExtractor',
-    author = 'Lingzhe Teng',
-    author_email = 'zwein27@gmail.com',
-    url = 'https://github.com/usc-isi-i2/dig-drug-use-extractor',
-    download_url = 'https://github.com/usc-isi-i2/dig-drug-use-extractor',
-    packages = find_packages(),
-    keywords = ['drug', 'use', 'extractor'],
-    install_requires=['digExtractor>=0.2.1']
-    )
+    name='digDrugUseExtractor',
+    version='0.3.0',
+    description='digDrugUseExtractor',
+    author='Lingzhe Teng',
+    author_email='zwein27@gmail.com',
+    url='https://github.com/usc-isi-i2/dig-drug-use-extractor',
+    download_url='https://github.com/usc-isi-i2/dig-drug-use-extractor',
+    packages=find_packages(),
+    keywords=['drug', 'use', 'extractor'],
+    install_requires=['digExtractor>=0.3.2']
+)

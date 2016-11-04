@@ -1,7 +1,6 @@
-import re
-
 def drug_use_build_phrase(x):
     return r'(?:\b' + x + r's?\b)'
+
 
 drug_use_words = [
     r"meth\s*head",
@@ -29,7 +28,7 @@ drug_use_words = [
     r"crank-whore",
     r"pill\s*popper",
     r"pill-popper"
-    ]
+]
 
 # If any of the following match, assume it is a negative statement
 negative_regex_list = [
@@ -42,8 +41,9 @@ negative_regex_list = [
 # Common drug user slang
 phrase_re_list = []
 for x in drug_use_words:
-     phrase_re_list.append(drug_use_build_phrase(x))
-         
+    phrase_re_list.append(drug_use_build_phrase(x))
+
+
 # Typical sentence fragments to refer to drug users
 regex_list = [
     "|".join(phrase_re_list),
@@ -56,48 +56,3 @@ regex_list = [
     r'\bdoes\s.{,15}?drugs',
     r'\bshe\s+in.{,7}?drugs',
 ]
-
-def extract_drug_use(text):
-    """Returns an array of all mentions of drug use.
-    Example mentions from ads:
-    - she is a drug user
-    - uses this money he uses it to buy drugs
-    - SHE IS ON SOME HEAVY DRUGS
-    - she's on drugs
-    - TRAK MARKS ON ARMS
-    - uses drugs during her sessions
-    - provider also uses drugs
-    - uses and sells drugs
-    - smell like some drug she uses
-    - does drugs -- negative is I don't smoke or do drugs
-    - negative: I am not looking for someone who uses drugs
-    - negative: no drugs
-    - Shes In To Drugs
-    - negative: who isn't on drugs
-    - negative: I do not do drugs
-    - meth head
-    - crack head
-    - crackhead/meth monster
-    - druggie
-    - junkie
-    - adict
-    - dopehead
-    - acid freak
-    - acid head
-    - bag bitch
-    - coke whore
-    - dope whore
-    - crank whore
-    - pill popper
-
-    """
-
-    for negative in negative_regex_list:
-        if re.findall(negative, text, re.I):
-            return []
-
-    result = []
-    for r in regex_list:
-        result += re.findall(r, text, re.I)
-
-    return result
